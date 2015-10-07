@@ -12,7 +12,7 @@ VERSION := $(shell git log -n 1 --pretty=format:"%h" 2>/dev/null)
 SOURCE_STATUS := $(shell git_status=$$(git status --porcelain); if test -n "$${git_status}"; then echo " +α"; fi)
 EXPIRE_CACHE := $(shell [[ ! -e cache/.run || -n `find cache/.run $(MAX_AGE_TO_CACHE) 2>/dev/null` ]] && touch cache/.run 2>/dev/null )
 
-SYNC_CMD1 := wget -q 'https://www.google.com/fusiontables/exporttable?query=select+*+from+14rS7ksuRpjncURPzdrGJ2KDay0DpfyofKDCA7LYP' -O cache/nGeigie_map.csv
+SYNC_CMD1 := wget -q 'https://www.google.com/fusiontables/exporttable?query=select+*+from+16mAHb9j2Adm-eKfEoKUTMkQicV6zSrJDTANF1GVO' -O cache/nGeigie_map.csv
 SYNC1 := $(shell [[ ! -e cache/nGeigie_map.csv || -n `find cache/nGeigie_map.csv $(MAX_AGE_TO_CACHE) 2>/dev/null` ]] && $(SYNC_CMD1) 2>/dev/null )
 SYNC_CMD2 := wget -q 'http://realtime.safecast.org/wp-content/uploads/devices.json' -O cache/devices.json
 SYNC2 := $(shell [[ ! -e cache/devices.json || -n `find cache/devices.json $(MAX_AGE_TO_CACHE) 2>/dev/null` ]] && $(SYNC_CMD2) 2>/dev/null )
