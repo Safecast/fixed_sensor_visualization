@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    container_name: fixed_sensor_visualization
+    volumes:
+      - ".:/src"
